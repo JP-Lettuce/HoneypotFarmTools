@@ -550,11 +550,11 @@ public class ConfigManager {
 				
 			//save as logfile	
 			case 2:	this.controll.toPrint(" -----> Wird als Logfile gesichert");
-					dest += "store/" + name +"/" + "ConfAt_" + timeStamp + "xml";	//set destination for new storagelog
+					dest += "store/" + name +"/" + "ConfAt_" + timeStamp + ".xml";	//set destination for new storagelog
 					break;
 			//save as manuelcreated-logfile	
 			case 3: this.controll.toPrint(" -----> Wird als manueller Abruf gesichert");
-					dest += "store/" + name +"/" + "Manuel_ConfAt_" + timeStamp + "xml";	//set destination for new storagelog
+					dest += "store/" + name +"/" + "Manuel_ConfAt_" + timeStamp + ".xml";	//set destination for new storagelog
 					break;
 				
 			default: this.controll.toErrorPrint("!---- Unbekannter Fehler beim speichern der Konfig");

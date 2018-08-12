@@ -51,6 +51,7 @@ public class DeviceTab {
 	private Button [] statusBtn;
 	private Button [] resetBtn;
 	private Button [] exportBtn;
+	private Button [] changeOIDBtn;
 	private Button [] deleteBtn;
 	
 	private ArrayList<Device> devices;
@@ -90,7 +91,7 @@ public class DeviceTab {
 		
 		//Give the composite its own GridLayout
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 5;
+		gridLayout.numColumns = 6;
 		listComposite.setLayout(gridLayout);
 	}
 
@@ -98,7 +99,7 @@ public class DeviceTab {
 	private void createList() {						
 		//Expanding of the cells
 		int horizontalSpan = 1;
-		int verticalSpan = 5;
+		int verticalSpan = 6;
 				
 		//Cell grows with the window
 		boolean grabExcessHorizontalSpace = true;
@@ -116,6 +117,7 @@ public class DeviceTab {
 		statusBtn = new Button[length];
 		exportBtn = new Button[length];
 		resetBtn = new Button[length];
+		changeOIDBtn = new Button[length];
 		deleteBtn = new Button[length];
 		
 		//Get all controls for the devices
@@ -149,6 +151,10 @@ public class DeviceTab {
 			exportBtn[i] = new Button(listComposite, SWT.PUSH);
 			exportBtn[i].setText(message.getString("exportBtnText"));
 			exportBtn[i].setLayoutData(gdata); 
+			
+			changeOIDBtn[i] = new Button(listComposite, SWT.PUSH);
+			changeOIDBtn[i].setText(message.getString("OID"));
+			changeOIDBtn[i].setLayoutData(gdata);
 			
 			deleteBtn[i] = new Button(listComposite,SWT.PUSH);
 			deleteBtn[i].setText(message.getString("deleteBtnText"));
@@ -249,9 +255,7 @@ public class DeviceTab {
 						msgBox("Export: Failed, see service for details", "Export config");
 					}
 				}
-			});
-			
-			
+			});			
 			
 			//Reset the device with the previous selected script
 			resetBtn[listenerCounter].addSelectionListener(new SelectionAdapter() {
@@ -262,6 +266,16 @@ public class DeviceTab {
 					} else {
 						msgBox("Default reset: No default found", "Reset config");
 					}
+			      }
+			});
+			
+			changeOIDBtn[listenerCounter].addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent event) {
+					ChangeOIDGUI changeOID = new ChangeOIDGUI(shell, device);
+					changeOID.setResourceBundle(message);
+					changeOID.open();
+					JSONmanager.write(devices);
 			      }
 			});
 			

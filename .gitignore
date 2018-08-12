@@ -107,3 +107,7 @@ buildNumber.properties
 
 
 # End of https://www.gitignore.io/api/java,maven,eclipse
+Options.xml
+config/Devices.txt
+config/Devices.txt
+Options.xml

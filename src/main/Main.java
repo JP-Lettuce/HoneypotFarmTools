@@ -31,7 +31,7 @@ public class Main {
 		
 		System.out.println("/------------------------------------------------------------\\");
 		System.out.println("|              HIRSCHMANN - INDUSTRIAL HONEYNET              |");
-		System.out.println("|                        TOOLS v1.0                          |");
+		System.out.println("|                        TOOLS v1.1                          |");
 		System.out.println("|- - - - - - - - - - - - - - -- - - - - - - - - - - - - - - -|");
 		System.out.println("|          AUTOREN: Lukas Voetsch und Janek Pelzer           |");
 		System.out.println("|            Unter der Leitung von Andreas Kompter           |");
